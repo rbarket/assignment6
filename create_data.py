@@ -6,19 +6,20 @@ from implementations import all_implementations
 df=pd.DataFrame()
 
 samples = 45
-timestart = time.time()
-for sort in all_implementations:
-    
+# timestart = time.time()
+names=['qs1','qs2','qs3','qs4','qs5','merge1','partition']
+for i in range(len(all_implementations)):
     tests = []
     for trial in range(samples):
         random_array=np.random.randint(100000, size=(20000))
         st = time.time()
-        res = sort(random_array)
+        res = all_implementations[i](random_array)
         en = time.time()
         timer = en-st
         tests.append(timer)
-        col = pd.Series(tests).rename(str(sort))
+        col = pd.Series(tests).rename(names[i])
     df = pd.concat([df,col], axis=1)
-timeend = time.time()
-totaltime = timeend-timestart
+# timeend = time.time()
+# totaltime = timeend-timestart
+# print(totaltime)
 df.to_csv('data.csv', index=False)
