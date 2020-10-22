@@ -11,7 +11,7 @@ names=['qs1','qs2','qs3','qs4','qs5','merge1','partition']
 for i in range(len(all_implementations)):
     tests = []
     for trial in range(samples):
-        random_array=np.random.randint(100000, size=(16000))
+        random_array=np.random.randint(100000, size=(12250))
         st = time.time()
         res = all_implementations[i](random_array)
         en = time.time()
