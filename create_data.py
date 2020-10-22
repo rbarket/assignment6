@@ -21,4 +21,4 @@ for sort in all_implementations:
     df = pd.concat([df,col], axis=1)
 timeend = time.time()
 totaltime = timeend-timestart
-data.to_csv('data.csv', index=False)
+df.to_csv('data.csv', index=False)
